@@ -15,7 +15,11 @@ swoft database migration component
 ```sh
 composer require yangdong/swoft-migration
 ```
-
+If it cannot be installed.
+maybe add version number.
+```sh
+composer require yangdong/swoft-migration:dev-master
+```
 ## explain
 
 about config
