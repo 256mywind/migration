@@ -1,3 +1,9 @@
+#Attention
+
+![](app.jpg)
+
+Must be added namespace
+
 ## swoft migration
 
 swoft database migration component
@@ -5,7 +11,7 @@ swoft database migration component
 ## install
 
 ```sh
-composer require swoft/migration
+composer require yangdong/swoft-migration
 ```
 
 ## explain
