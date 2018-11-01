@@ -10,8 +10,6 @@ namespace Swoft\Migration\Command;
 use Swoft\Console\Bean\Annotation\Command;
 use Swoft\Migration\Seed\Create;
 use Swoft\Migration\Seed\Run;
-use Swoft\Console\Input\Input;
-use Swoft\Console\Output\Output;
 
 /**
  * the group command list of database seed.
@@ -22,19 +20,6 @@ use Swoft\Console\Output\Output;
  */
 class SeedCommand
 {
-    public $input;
-
-    public $output;
-
-    /**
-     * SeedCommand constructor.
-     */
-    public function __construct()
-    {
-        $this->input  = new Input();
-        $this->output = new Output();
-    }
-
     /**
      * Create the new seeder.
      *
@@ -49,7 +34,7 @@ class SeedCommand
      */
     public function create()
     {
-        (new Create())->execute($this->input, $this->output);
+        (new Create())->execute(\input(), \output());
     }
 
     /**
@@ -67,6 +52,6 @@ class SeedCommand
      */
     public function run()
     {
-        (new Run())->execute($this->input, $this->output);
+        (new Run())->execute(\input(), \output());
     }
 }

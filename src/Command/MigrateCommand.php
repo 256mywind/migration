@@ -7,8 +7,6 @@
 namespace Swoft\Migration\Command;
 
 use Swoft\Console\Bean\Annotation\Command;
-use Swoft\Console\Input\Input;
-use Swoft\Console\Output\Output;
 use Swoft\Migration\Migrates\Breakpoint;
 use Swoft\Migration\Migrates\Create;
 use Swoft\Migration\Migrates\Down;
@@ -25,20 +23,6 @@ use Swoft\Migration\Migrates\Up;
  */
 class MigrateCommand
 {
-
-    public $input;
-
-    public $output;
-
-    /**
-     * MigrateCommand constructor.
-     */
-    public function __construct()
-    {
-        $this->input  = new Input();
-        $this->output = new Output();
-    }
-
     /**
      * Create the new migration.
      *
@@ -53,7 +37,7 @@ class MigrateCommand
      */
     public function create()
     {
-        (new Create())->execute($this->input, $this->output);
+        (new Create())->execute(\input(), \output());
     }
 
     /**
@@ -73,7 +57,7 @@ class MigrateCommand
      */
     public function up()
     {
-        (new Up())->execute($this->input, $this->output);
+        (new Up())->execute(\input(), \output());
     }
 
     /**
@@ -94,7 +78,7 @@ class MigrateCommand
      */
     public function down()
     {
-        (new Down())->execute($this->input, $this->output);
+        (new Down())->execute(\input(), \output());
     }
 
     /**
@@ -112,7 +96,7 @@ class MigrateCommand
      */
     public function status()
     {
-        (new Status())->execute($this->input, $this->output);
+        (new Status())->execute(\input(), \output());
     }
 
     /**
@@ -133,7 +117,7 @@ class MigrateCommand
      */
     public function breakpoint()
     {
-        (new Breakpoint())->execute($this->input, $this->output);
+        (new Breakpoint())->execute(\input(), \output());
     }
 
     /**
@@ -141,6 +125,6 @@ class MigrateCommand
      */
     public function test()
     {
-        (new Test())->execute($this->input, $this->output);
+        (new Test())->execute(\input(), \output());
     }
 }
